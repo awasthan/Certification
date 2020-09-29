@@ -64,4 +64,12 @@ oc new-build openshift/wildfly-101-centos7~https://github.com/wildfly/quickstart
     Ex- 
       oc patch cm/appsec --patch '{"data":{"test": "check"}}'
     With patch command,you can provide a JSON object definition for just the setting you want to add or update. 
+    
+    You can also edit configmaps and secrets using 'oc set data' commands, like below. This command can come very handy to do things quickly.
+     # Update the 'haproxy.conf' key of a config map from a file on disk
+  oc set data configmap/bar --from-file=../haproxy.conf
+
+  # Update a secret with the contents of a directory, one key per file
+  oc set data secret/foo --from-file=secret-dir
+    
 
